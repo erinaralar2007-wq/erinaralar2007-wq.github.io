@@ -959,6 +959,28 @@ ul, ol {
 #sound iframe:hover {
     opacity: 1;
 }
+#tasks ul li span {
+    margin-left: auto; /* Pushes the X to the absolute right edge, regardless of text length */
+    width: 24px;
+    height: 24px;
+    font-size: 1.1rem;
+    line-height: 22px;
+    text-align: center;
+    color: rgba(227, 220, 210, 0.6);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    
+    /* Center the 'X' glyph perfectly inside its small square zone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tasks ul li span:hover {
+    background-color: rgba(255, 24, 24, 0.2);
+    color: #ff6b6b;
+}
 /* --- Fix for Strikethrough inside Flexbox items --- */
 #tasks ul li.checked {
     text-decoration: line-through !important;
