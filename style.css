@@ -15,11 +15,10 @@ body {
 }
 
     body.studyPage {
-        /*background-color: #f4ead6ff;*/
-        height: 100%;
-        background: url('assets/darkacademiabg.jpg') no-repeat center;
-        background-size: cover;
-        
+    height: 100vh;
+    background: url('assets/darkacademiabg.jpg') no-repeat center;
+    background-size: cover;
+    font-family: 'Nunito', 'Lato', sans-serif;
     }
 
     body.video-mode {
@@ -267,12 +266,10 @@ article {
     width: 100%;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 30% 30%;
-    grid-template-rows: 20% 10% 20% 20%;
-    column-gap: 40%;
-    row-gap: 10%;
+    /* Grid setups for Sideboxes on edges, center left entirely clear */
+    grid-template-columns: 28% 44% 28%;
+    column-gap: 0;
     margin: auto;
-    color: #413b3b;
 }
 
     #page .box button {
@@ -524,9 +521,7 @@ article {
 /* tasks */
 #tasks {
     grid-column: 1;
-    grid-row: span 3;
-    display: grid;
-    grid-template-rows: 20% 15% 65%;
+    z-index: 2;
 }
 
 /* #tasks h2 {
@@ -625,84 +620,94 @@ li.checked.unchecked::before {
 
 
 /* pomodoro */
-#pomodoro {
-    display: grid;
-    grid-template-rows: 40% 30% 30%;
-    height: 100%;
-    width: 100%;
-    grid-row: span 2;
+#pomodoro.flocus-timer {
+    display: block;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    /* Perfect Fixed Centering - Replacing Vinyl positioning */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: auto;
+    z-index: 10;
+    text-align: center;
+    color: #ffffff; /* Clean white color contrast for Dark Academia background */
+    text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-    #pomodoro button {
-        background-color: #be875b;
-        border: none;
-        border-radius: 5px;
-        color: #1d1b1b;
-    }
-
-        #pomodoro button:hover {
-            background-color: #dcb58f;
-        }
-
-/* row 1 */
-.timeDisplay {
-    margin: auto;
-    grid-row: 1;
-    font-size: 2.5rem;
-    font-weight: bold;
-    height: 100%;
+/* Clean, Giant Elegant Flocus Text */
+#pomodoro.flocus-timer .timeDisplay {
+    font-size: 6.5rem; 
+    font-family: 'Lato', sans-serif;
+    font-weight: 300; /* Ultra clean lightweight styling */
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+    display: block;
 }
 
-/* row 2 */
-.clockControls {
-    display: grid;
-    grid-template-rows: 50% 50%;
-    grid-row: 2;
-    height: 100%;
+/* Minimalist Button Styling */
+#pomodoro.flocus-timer .startReset {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
 }
 
-.controlsLeft {
-    grid-row: 1;
-    grid-template-columns: 30% 50% 20%;
-    display: grid;
+#pomodoro.flocus-timer #start, 
+#pomodoro.flocus-timer #reset {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 10px 30px;
+    width: auto;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
 }
 
-#studyLabel {
-    grid-column: 1;
-    margin: auto;
+#pomodoro.flocus-timer #start:hover, 
+#pomodoro.flocus-timer #reset:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.03);
 }
 
-#sessionTime {
-    grid-column: 2;
-    margin: auto;
+/* Discrete Interval adjustment panel beneath */
+#pomodoro.flocus-timer .clockControls {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 35px;
+    font-size: 0.85rem;
+    opacity: 0.5; /* Muted when inactive */
+    transition: opacity 0.3s ease;
 }
 
-#studyButtons {
-    grid-column: 3;
-    margin: auto;
+#pomodoro.flocus-timer:hover .clockControls {
+    opacity: 1; /* Appears cleanly on hover just like Flocus */
 }
 
-.controlsRight {
-    grid-row: 2;
-    grid-template-columns: 30% 50% 20%;
-    display: grid;
+#pomodoro.flocus-timer .controlsLeft, 
+#pomodoro.flocus-timer .controlsRight {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-#breakLabel {
-    grid-column: 1;
-    margin: auto;
+#pomodoro.flocus-timer .timeAdjust {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 0 5px;
+    cursor: pointer;
 }
-
-#breakTime {
-    grid-column: 2;
-    margin: auto;
-}
-
-#breakButtons {
-    grid-column: 3;
-    margin: auto;
-}
-
 /* row 3 */
 .startReset {
     display: grid;
@@ -732,10 +737,8 @@ li.checked.unchecked::before {
 
 /* sound */
 #sound {
-    grid-column: 2;
-    grid-row: span 2;
-    height: 100%;         /* Take full grid row height */
-    overflow-y: auto; 
+    grid-column: 3;
+    z-index: 2;
 }
 
     #sound h1 {
