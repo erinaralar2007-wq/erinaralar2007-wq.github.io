@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html class="studyHtml">
-<!-- head -->
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Level 3 STEM Guide | Study Mode</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/x-icon" href="assets/siteLogoStudy.png">
 </head>
-<!-- body -->
 <body class="studyPage">
-  <!-- article -->
   <article>
-    <!-- page -->
-    <!-- buttons -->
-    <button id="settings" type="button"><img src="assets/icons8-settings-50.png" height="50" width="50" alt="Settings gear icon"><br>
-    Settings</button>
+    <button id="settings" type="button"><img src="assets/icons8-settings-50.png" height="50" width="50" alt="Settings gear icon"><br>Settings</button>
     <button id="back-to-settings" type="button">Back to settings</button>
     
     <section id="page">
@@ -24,86 +17,67 @@
         <button id="back" type="button">Back</button>
         <button id="tasks-nav-button" type="button">Tasks</button>
         <button id="audio-nav-button" type="button">Audio</button>
-        <!-- icon credit -->
-        <div class="settings-credit"><a target="_blank" href="https://icons8.com/icon/2969/settings">Settings</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-        </div>
+        <div class="settings-credit"><a target="_blank" href="https://icons8.com/icon/2969/settings">Settings</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></div>
       </div>
-     
-      <!--pomodoro timer  -->
-      <div class="box" id="pomodoro">
+      
+      <div id="pomodoro" class="flocus-timer">
         <audio id="pomodoroSound">
           <source class="sound" src="assets/ping.mp3" type="audio/mp3">
         </audio>
+        
         <div class="clockBox">
           <div class="clockDisplay">
             <div class="timeDisplay">
-              <span id="minutes">00</span>
-              <span id="colon">:</span>
-              <span id="seconds">00</span>
+              <span id="minutes">00</span><span id="colon">:</span><span id="seconds">00</span>
             </div>
           </div>
+
+          <div class="startReset">
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+          </div>
+
           <div class="clockControls">
             <div class="controlsLeft">
-              <p id="studyLabel">Study</p>
-              <p id="sessionTime">15 min</p>
+              <span id="studyLabel">Study:</span>
+              <span id="sessionTime">15 min</span>
               <div id="studyButtons">
                 <button id="seshMinus" class="timeAdjust">-</button>
                 <button id="seshPlus" class="timeAdjust">+</button>
               </div>
             </div>
             <div class="controlsRight">
-              <p id="breakLabel">Break</p>
-              <p id="breakTime">5 min</p>
+              <span id="breakLabel">Break:</span>
+              <span id="breakTime">5 min</span>
               <div id="breakButtons">
                 <button id="breakMinus" class="timeAdjust">-</button>
                 <button id="breakPlus" class="timeAdjust">+</button>
               </div>
             </div>
           </div>
-          <div class="startReset">
-            <button id="start">Start</button>
-            <button id="reset">Reset</button>
-          </div>
         </div>
       </div>
-      <!-- tasks list -->
-      <!-- follow this tutorial: https://www.youtube.com/watch?v=G0jO8kUrg-I&ab_channel=GreatStack -->
+
       <div class="box" id="tasks">
         <h2>Tasks List</h2>
         <div id="taskList">
           <input type="text" id="taskInput" placeholder="Add task">
           <button onclick="addTask()">+</button>
         </div>
-        <ul id="tasksContainer">
-          
-        </ul>
+        <ul id="tasksContainer"></ul>
       </div>
-      <!-- sound box -->
+
       <div class="box" id="sound">
-        <h1>Audio</h1>
-        <!-- <p>Lofi</p><audio id="lofi" loop preload='auto'>
-              <source class="sound" src="assets/lofi.mp3" type="audio/mp3">
-        </audio>
-        <button id="play1">Play</button>
-        <input type="range" min="0" max="1" step="0.01" id="volumeSlider1">
-        <p>Rain Noise</p><audio  id="rainNoise"loop preload='auto'>
-              <source class="sound" src="assets/rainNoise.mp3" type="audio/mp3">
-        </audio>
-        <button id="play2">Play</button>
-        <input type="range" min="0" max="1" step="0.01" id="volumeSlider2"> -->
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4UXq6ouN0MSbKIKKDvwfmX?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4V1Vb3btiTm7R1uzcvGfrr?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/14t1G7SkZPAZgDAVHcxDkf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6OiAsggRHgyLfPK7bnzPBY?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </section>
-    <!--vinyl gif--> 
-    <img id="vinyl" src="assets/record.gif" alt="moving image of a spinning record">
+
+    <img id="vinyl" src="assets/record.gif" alt="moving image of a spinning record" style="display: none !important;">
   </article>
   
   <script src="script.js" defer></script>
 </body>
-
 </html>
-
-
