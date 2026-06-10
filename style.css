@@ -257,19 +257,24 @@ article {
 }
 
 .studyPage article {
-    height: 85vh;
+    height: 100vh; /* Utilizes the full screen height */
+    padding: 0 8vw; /* Comfortable breathing room on the edges */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* Centers the entire workspace layout vertically */
+    justify-content: center;
 }
 
 #page {
     position: relative;
-    height: 100%;
     width: 100%;
-    box-sizing: border-box;
-    display: grid;
-    /* Grid setups for Sideboxes on edges, center left entirely clear */
-    grid-template-columns: 28% 44% 28%;
-    column-gap: 0;
-    margin: auto;
+    height: 65vh; /* Constraints both panels to the exact same elegant height */
+    max-height: 600px; /* Prevents the panels from stretching too tall on massive screens */
+    display: flex;
+    justify-content: space-between; /* Pushes the panels perfectly to the left and right edges */
+    align-items: stretch; /* Forces all children panels to match heights 1:1 */
+    margin: 0;
+    color: #413b3b;
 }
 
     #page .box button {
@@ -911,6 +916,48 @@ footer a {
 ul, ol {
     list-style-position: inside;
     padding-left: 1rem;
+}
+
+#tasks, #sound {
+    width: 28%;               /* Keeps panels uniformly wide */
+    height: 100% !important;  /* Forces uniform height alignment */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* --- Specific Tasks Settings --- */
+#tasks h2 {
+    font-family: 'Reem Kufi Fun', 'Lato', sans-serif;
+    color: #cca67f; 
+    margin: 0 0 16px 0; 
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+/* --- Specific Sound/Audio Settings --- */
+#sound {
+    overflow-y: auto;
+    gap: 14px;
+    padding-right: 5px;
+}
+
+#sound h1 {
+    display: none; /* Keeps it clean and un-cluttered */
+}
+
+#sound iframe {
+    flex-shrink: 0; 
+    border: none !important;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+#sound iframe:hover {
+    opacity: 1;
 }
 
 
