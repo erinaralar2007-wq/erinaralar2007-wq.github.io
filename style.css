@@ -993,6 +993,61 @@ ul, ol {
     background-color: #be875b;
     box-shadow: inset 0 0 0 3px rgba(28, 22, 18, 0.8);
 }
+/* --- Balanced Task List Items Layout --- */
+#tasks ul li {
+    list-style-type: none !important; /* Forces the default bullet points (•) to vanish */
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    
+    /* Elegant Dark Academia glass pill container */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    
+    padding: 12px 14px; /* Even spacing inside the pill box */
+    margin-bottom: 10px;
+    color: #e3dcd2;
+    font-size: 0.95rem;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* --- The Checkbox Element --- */
+#tasks ul li::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #be875b;
+    border-radius: 4px;
+    margin-right: 14px; /* Clean gap between checkbox and text */
+    flex-shrink: 0;
+}
+
+/* --- The Close (X) Button --- */
+#tasks ul li span {
+    margin-left: auto; /* Acts like a magnet pushing the X to the absolute right wall */
+    width: 24px;
+    height: 24px;
+    font-size: 1.1rem;
+    color: rgba(227, 220, 210, 0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    
+    /* Perfect alignment for the X character */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+
+#tasks ul li span:hover {
+    background-color: rgba(255, 24, 24, 0.2);
+    color: #ff6b6b;
+}
 
 /*Phone*/
 @media only screen and (max-width:480px) {
