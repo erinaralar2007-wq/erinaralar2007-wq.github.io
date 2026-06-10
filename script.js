@@ -323,3 +323,24 @@ if (audioNavButton && mobileSettings && audio && backToSettings) {
         backToSettings.style.display = 'block';
     };
 }
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    // If no element is in fullscreen, request it on the whole page
+    document.documentElement.requestFullscreen().catch(err => {
+      alert(`Error attempting to enable fullscreen mode: ${err.message} (${err.name})`);
+    });
+  } else {
+    // If already fullscreen, exit
+    document.exitFullscreen();
+  }
+}
+
+// Optional: Listen for fullscreen changes to update button text/icon style
+document.addEventListener('fullscreenchange', () => {
+  const btn = document.getElementById('fullscreen-btn');
+  if (document.fullscreenElement) {
+    btn.innerHTML = '<span class="fs-icon">⤶</span> Exit Fullscreen';
+  } else {
+    btn.innerHTML = '<span class="fs-icon">⛶</span> Fullscreen';
+  }
+});
