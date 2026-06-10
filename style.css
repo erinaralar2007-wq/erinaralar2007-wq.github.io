@@ -16,7 +16,7 @@ body {
 
     body.studyPage {
     height: 100vh;
-    background: url('assets/darkacademiabg.jpg') no-repeat center;
+    background: url('darkacademiabg.jpg') no-repeat center;
     background-size: cover;
     font-family: 'Nunito', 'Lato', sans-serif;
     }
