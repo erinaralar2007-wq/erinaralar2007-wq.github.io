@@ -558,36 +558,37 @@ article {
 }
 
 /* tasks */
-/* --- Task List Proportion & Aesthetic Fixes --- */
-
+/* --- Tasks Main Container Fix --- */
 #tasks {
     grid-column: 1;
     grid-row: span 3;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: block; /* Overrides the broken grid rows */
     height: 100%;
+    box-sizing: border-box;
 }
 
 #tasks h2 {
     font-family: 'Reem Kufi Fun', 'Lato', sans-serif;
-    color: #cca67f; /* Warm brass accent color */
-    margin: 0 0 10px 0;
+    color: #cca67f; 
+    margin: 0 0 16px 0; /* Clean space below heading */
     font-weight: 500;
     letter-spacing: 1px;
     font-size: 1.5rem;
+    text-align: left;
 }
 
-/* Elegant, slim input row */
+/* --- Clean, Constrained Input Row --- */
 #taskList {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(190, 135, 91, 0.3);
     border-radius: 8px;
     overflow: hidden;
-    height: 45px; /* Clean, constrained height */
+    height: 46px !important; /* Forces it to be a slim bar instead of a square box */
     width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Pushes the saved tasks down neatly */
 }
 
 #tasks input {
@@ -606,86 +607,31 @@ article {
 }
 
 /* Proportional, square add button */
-#tasks button {
+#tasks #taskList button {
     background-color: rgba(190, 135, 91, 0.3);
     color: #e3dcd2;
     border: none;
     outline: none;
-    width: 50px;
-    height: 100%;
+    width: 46px !important; /* Makes it a clean, square button to match the bar's height */
+    height: 100% !important;
     font-size: 1.2rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background 0.2s;
 }
 
-#tasks button:hover {
+#tasks #taskList button:hover {
     background-color: rgba(190, 135, 91, 0.5);
 }
 
-/* Saved Task Items */
+/* --- Saved Tasks Container --- */
 #tasksContainer {
-    flex: 1;
-    max-height: calc(100% - 80px);
+    padding: 0;
+    margin: 0;
+    max-height: calc(100% - 90px); /* Dynamically scales the list to fit perfectly */
     overflow-y: auto;
-    margin-top: 10px;
-}
-
-#tasks ul li {
-    list-style-type: none;
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 12px 40px 12px 15px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    color: #e3dcd2;
-    font-size: 0.95rem;
-}
-
-/* Custom modern custom checkbox design to replace default circle text */
-li.unchecked::before, li.checked::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #be875b;
-    border-radius: 4px;
-    margin-right: 12px;
-    flex-shrink: 0;
-}
-
-li.checked::before {
-    background-color: #be875b;
-    box-shadow: inset 0 0 0 3px rgba(28, 22, 18, 0.8);
-}
-
-li.checked {
-    text-decoration: line-through;
-    opacity: 0.5;
-}
-
-/* Beautiful close (X) button positioning */
-#tasks ul li span {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    font-size: 1.1rem;
-    line-height: 22px;
-    text-align: center;
-    color: rgba(227, 220, 210, 0.6);
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.2s;
-}
-
-#tasks ul li span:hover {
-    background-color: rgba(255, 24, 24, 0.2);
-    color: #ff6b6b;
 }
 
 
