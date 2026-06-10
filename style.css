@@ -420,6 +420,43 @@ article {
     display: none;
 }
 
+#fullscreen-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Adjust if it overlaps your settings button */
+    z-index: 100;
+    background: rgba(28, 22, 18, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(190, 135, 91, 0.3);
+    color: #e3dcd2;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+#fullscreen-btn:hover {
+    background: rgba(190, 135, 91, 0.25);
+    border-color: rgba(190, 135, 91, 0.6);
+    transform: translateY(-1px);
+}
+
+#fullscreen-btn:active {
+    transform: translateY(1px);
+}
+
+.fs-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
 /*content*/
 
 .pdf {
