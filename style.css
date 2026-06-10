@@ -480,14 +480,16 @@ article {
 }
 
 .box {
-    border: solid #be875b 1px;
-    padding: 1vw;
-    text-align: center;
+    background: rgba(28, 22, 18, 0.65) !important; /* Deep warm charcoal with transparency */
+    backdrop-filter: blur(12px); /* Soft frosted glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(190, 135, 91, 0.25) !important; /* Subtle antique gold border */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    padding: 24px;
     box-sizing: border-box;
-    background-color: #dfc496;
-    opacity: 100%;
-    z-index: 3;
-    border-radius: 20px;
+    border-radius: 16px;
+    color: #e3dcd2; /* Soft parchment cream text */
+    transition: all 0.3s ease;
 }
 
 /* switch mode */
@@ -519,26 +521,36 @@ article {
 }
 
 /* tasks */
+/* --- Task List Proportion & Aesthetic Fixes --- */
+
 #tasks {
     grid-column: 1;
-    z-index: 2;
+    grid-row: span 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
 }
 
-/* #tasks h2 {
-  
-} */
-#tasksContainer {
-    padding: 0;
-    margin: 0;
+#tasks h2 {
+    font-family: 'Reem Kufi Fun', 'Lato', sans-serif;
+    color: #cca67f; /* Warm brass accent color */
+    margin: 0 0 10px 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
 }
 
+/* Elegant, slim input row */
 #taskList {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #d5b885;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(190, 135, 91, 0.3);
+    border-radius: 8px;
     overflow: hidden;
+    height: 45px; /* Clean, constrained height */
+    width: 100%;
 }
 
 #tasks input {
@@ -546,76 +558,97 @@ article {
     flex: 1;
     border: none;
     outline: none;
-    /* prevents the border/outline from showing up when the user clicks on the input*/
     height: 100%;
-    padding-left: 10px;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 0.95rem;
 }
 
+#tasks input::placeholder {
+    color: rgba(227, 220, 210, 0.4);
+}
+
+/* Proportional, square add button */
 #tasks button {
-    background-color: #be875b;
+    background-color: rgba(190, 135, 91, 0.3);
+    color: #e3dcd2;
     border: none;
     outline: none;
-    padding: 5%;
+    width: 50px;
     height: 100%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
-    #tasks button:hover {
-        background-color: #cca67f;
-    }
+#tasks button:hover {
+    background-color: rgba(190, 135, 91, 0.5);
+}
+
+/* Saved Task Items */
+#tasksContainer {
+    flex: 1;
+    max-height: calc(100% - 80px);
+    overflow-y: auto;
+    margin-top: 10px;
+}
 
 #tasks ul li {
     list-style-type: none;
     position: relative;
-    height: 30px;
-    text-align: left;
-    width: 80%;
-    margin: 5% auto 5% auto;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px 40px 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    color: #e3dcd2;
+    font-size: 0.95rem;
+}
+
+/* Custom modern custom checkbox design to replace default circle text */
+li.unchecked::before, li.checked::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #be875b;
+    border-radius: 4px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+li.checked::before {
+    background-color: #be875b;
+    box-shadow: inset 0 0 0 3px rgba(28, 22, 18, 0.8);
 }
 
 li.checked {
     text-decoration: line-through;
+    opacity: 0.5;
 }
 
-li.unchecked::before {
-    content: "✓ ";
-    color: white;
-    background-color: white;
-    border: solid black 1px;
-    margin-right: 30px;
-    border-radius: 50%;
-    top: -5px;
-}
-
-li.checked.unchecked::before {
-    content: "✓ ";
-    color: black;
-    border: solid black 1px;
-    background-color: white;
-    text-decoration: none;
-    margin-right: 30px;
-    border-radius: 50%;
-    top: -5px;
-}
-
+/* Beautiful close (X) button positioning */
 #tasks ul li span {
     position: absolute;
-    right: 0;
-    top: -5px;
-    width: 30px;
-    height: 30px;
-    font-size: 2rem;
-    line-height: 30px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    font-size: 1.1rem;
+    line-height: 22px;
     text-align: center;
-    color: #413b3b;
+    color: rgba(227, 220, 210, 0.6);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
 }
 
-    #tasks ul li span:hover {
-        background-color: #d5b885;
-    }
-
-#tasksContainer {
-    max-height: 100%;
-    overflow-y: auto;
+#tasks ul li span:hover {
+    background-color: rgba(255, 24, 24, 0.2);
+    color: #ff6b6b;
 }
 
 
@@ -738,34 +771,24 @@ li.checked.unchecked::before {
 /* sound */
 #sound {
     grid-column: 3;
-    z-index: 2;
+    grid-row: span 2;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Clean tracking between embeds */
 }
 
-    #sound h1 {
-        display: none;
-    }
-
-audio {
-    width: 80%;
-    margin: auto;
+/* Seamless Spotify embedding */
+#sound iframe {
+    border: none !important;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-#sound button {
-    background-color: #be875b;
-    width: 5vw;
-    border: none;
-    border-radius: 4px;
-    color: #413b3b;
-}
-
-    #sound button:hover {
-        background-color: #dcb58f;
-    }
-
-input[type="range"] {
-    accent-color: #be875b;
-    background: #7d4625;
-    border: none;
+#sound iframe:hover {
+    opacity: 1;
 }
 
 /* vinyl */
